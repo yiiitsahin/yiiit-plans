@@ -63,6 +63,12 @@ export default new Vuex.Store({
     getPlans: state => state.plans
   },
   mutations: {
+    "ADD_PLAN"(state, plan){
+      state.plans.push(plan);
+    },
+    "ADD_TASK"(state, payload){
+      state.plans[payload.planIndex].tasks.push(payload.task);
+    }
   },
   actions: {
   },

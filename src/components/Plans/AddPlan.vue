@@ -1,6 +1,6 @@
 <template>
   <div class="plan__adding-panel">
-      <form @submit.prevent="addPlan">
+      <form @submit.prevent="addPlan(plan)">
         <input type="text" v-model="date" placeholder="Tarih"/>
         <input type="text" v-model="title" placeholder="Başlık"/>
         <input type="submit" value="Plan Ekle" />
@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
     data(){
         return {
@@ -16,12 +18,18 @@ export default {
             title: null
         }
     },
-    methods: {
-        addPlan(){
-            //Denem bunun yerine mutation yazılacak.
-            console.log("Plan", this.title, this.date);
-            this.$store.state.plans.push({date:this.date, title: this.title, tasks:[], id:Math.random().toString()});
+    computed: {
+        plan(){
+            return {
+                date: this.date, 
+                title: this.title, 
+                tasks:[], 
+                id:Math.random().toString()
+            }
         }
+    },
+    methods: {
+        ...mapMutations({addPlan : "ADD_PLAN"})
     }
 }
 </script>
