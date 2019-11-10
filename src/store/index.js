@@ -60,7 +60,8 @@ export default new Vuex.Store({
     ]
   },
   getters: {
-    getPlans: state => state.plans
+    getPlans: state => state.plans,
+    getPlansById: (state, getters) => id => getters.getPlans.filter(plan => plan.id === id)
   },
   mutations: {
     "ADD_PLAN"(state, plan){
