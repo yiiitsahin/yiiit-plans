@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as type from "./types";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
@@ -44,7 +44,7 @@ export default new Vuex.Store({
       {
         id: "3",
         date: "27.10.1989",
-        title: "Plan #3",
+        title: "Plan #4",
         tasks: [
           {
             title: "Task 1",
@@ -68,6 +68,9 @@ export default new Vuex.Store({
     [type.ADD_PLAN](state, plan){
       state.plans.push(plan);
     },
+    [type.DELETE_PLAN](state, planIndex) {
+      state.plans.splice(planIndex, 1);
+    },
     [type.ADD_TASK](state, payload){
       state.plans[payload.planIndex].tasks.push(payload.task);
     }
@@ -78,6 +81,9 @@ export default new Vuex.Store({
     },
     [type.ADD_TASK]({commit}, payload){
       commit(type.ADD_TASK, payload);
+    },
+    [type.DELETE_PLAN]({commit}, planIndex){
+      commit(type.DELETE_PLAN, planIndex);
     }
   },
   modules: {
