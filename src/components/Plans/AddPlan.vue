@@ -3,7 +3,7 @@
       <form @submit.prevent="addPlan(plan)">
         <input type="text" v-model="date" placeholder="Tarih"/>
         <input type="text" v-model="title" placeholder="Başlık"/>
-        <input type="submit" value="Plan Ekle" />
+        <input :disabled="date === ''" type="submit" value="Plan Ekle" />
       </form>
   </div>
 </template>
@@ -14,7 +14,7 @@ import { mapMutations } from "vuex";
 export default {
     data(){
         return {
-            date: null,
+            date: "",
             title: null
         }
     },

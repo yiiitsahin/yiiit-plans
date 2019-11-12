@@ -2,7 +2,7 @@
   <form @submit.prevent="addNewTask(payload)">
     <input type="text" v-model="title" placeholder="Title" />
     <input type="text" v-model="details" placeholder="Details" />
-    <input type="submit" value="Task Ekle" />
+    <input :disabled="title === ''" type="submit" value="Task Ekle" />
   </form>
 </template>
 
@@ -13,8 +13,8 @@ export default {
   props: ["planIndex"],
   data() {
     return {
-      title: null,
-      details: null
+      title: "",
+      details: ""
     };
   },
   computed: {
@@ -32,8 +32,8 @@ export default {
     ...mapMutations({ addTask: "ADD_TASK" }),
     addNewTask(payload) {
       this.addTask(payload);
-      this.details = null;
-      this.title = null;
+      this.details = "";
+      this.title = "";
     }
   }
 };
