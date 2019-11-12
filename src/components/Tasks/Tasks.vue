@@ -1,6 +1,6 @@
 <template>
   <ul class="tasks">
-    <Task v-for="(task, index) in tasks" :key="'task' + index" :task="task" />
+    <Task v-for="(task, index) in tasks" :key="'task' + index" :task="task" :taskIndex="index" :planIndex="planIndex"/>
     
     <AddTask :planIndex="planIndex"/>
   </ul>

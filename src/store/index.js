@@ -73,18 +73,24 @@ export default new Vuex.Store({
     },
     [type.ADD_TASK](state, payload){
       state.plans[payload.planIndex].tasks.push(payload.task);
-    }
+    },
+    [type.DELETE_TASK](state, payload) {
+      state.plans[payload.planIndex].tasks.splice(payload.taskIndex, 1);
+    },
   },
   actions: {
     [type.ADD_PLAN]({commit}, plan){
       commit(type.ADD_PLAN, plan);
     },
+    [type.DELETE_PLAN]({commit}, planIndex){
+      commit(type.DELETE_PLAN, planIndex);
+    },
     [type.ADD_TASK]({commit}, payload){
       commit(type.ADD_TASK, payload);
     },
-    [type.DELETE_PLAN]({commit}, planIndex){
-      commit(type.DELETE_PLAN, planIndex);
-    }
+    [type.DELETE_TASK]({commit}, payload){
+      commit(type.DELETE_TASK, payload);
+    },
   },
   modules: {
   }
