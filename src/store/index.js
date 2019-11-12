@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import * as type from "./types";
 
 Vue.use(Vuex)
 
@@ -64,14 +65,20 @@ export default new Vuex.Store({
     getPlansById: (state, getters) => id => getters.getPlans.filter(plan => plan.id === id)
   },
   mutations: {
-    "ADD_PLAN"(state, plan){
+    [type.ADD_PLAN](state, plan){
       state.plans.push(plan);
     },
-    "ADD_TASK"(state, payload){
+    [type.ADD_TASK](state, payload){
       state.plans[payload.planIndex].tasks.push(payload.task);
     }
   },
   actions: {
+    [type.ADD_PLAN]({commit}, plan){
+      commit(type.ADD_PLAN, plan);
+    },
+    [type.ADD_TASK]({commit}, payload){
+      commit(type.ADD_TASK, payload);
+    }
   },
   modules: {
   }

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   props: ["planIndex"],
@@ -29,7 +29,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations({ addTask: "ADD_TASK" }),
+    ...mapActions({ addTask: "ADD_TASK" }),
     addNewTask(payload) {
       this.addTask(payload);
       this.details = "";

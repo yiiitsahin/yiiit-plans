@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
     data(){
@@ -29,7 +29,7 @@ export default {
         }
     },
     methods: {
-        ...mapMutations({addPlan : "ADD_PLAN"})
+        ...mapActions({addPlan : "ADD_PLAN"})
     }
 }
 </script>
