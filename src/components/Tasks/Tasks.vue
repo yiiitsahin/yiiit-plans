@@ -21,6 +21,10 @@ export default {
 
 <style lang="scss">
 .tasks {
-  border: 1px solid yellow;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: #e7e4e4;
+  margin: 5px;
+  padding: 10px 10px 10px 40px;
 }
 </style>

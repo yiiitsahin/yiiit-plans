@@ -1,7 +1,7 @@
 <template>
   <div class="plan">
     <div style="z-index:1; position: relative;">
-      <div>Tarih: {{plan.date}} : {{plan.title}} <span><button @click="deletePlan(planIndex)">Sil</button></span></div>
+      <div class="plan__title">Tarih: {{plan.date}} : {{plan.title}} <span><button @click="deletePlan(planIndex)">Sil</button></span></div>
       <div>
         <Tasks :tasks="plan.tasks" :planIndex="planIndex"/>
       </div>
@@ -31,10 +31,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .plan {
-  border: 1px solid green;
+  border: 1px solid #ccc;
   margin: 0 0 5px 0;
-  background-color: #b98911;
+  border-radius: 5px;
+  background-color: #fff;
+      margin: 5px;
+
+  &__title {
+    font-weight: bold;
+    padding: 7px 7px 3px;
+  }
 }
 </style>
